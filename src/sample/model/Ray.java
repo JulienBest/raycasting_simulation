@@ -1,15 +1,15 @@
 package sample.model;
 
-public class Ray {
-    private int startX;
-    private int startY;
-    private int endX;
-    private int endY;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Line;
 
-    public Ray(int startX, int startY, int endX, int endY) {
-        this.startX = startX;
-        this.startY = startY;
-        this.endX = endX;
-        this.endY = endY;
+public class Ray extends Line {
+
+    public Ray(double startX, double startY, double endX, double endY) {
+        this.setStartX(startX);
+        this.setStartY(startY);
+        this.setEndX(endX);
+        this.setEndY(endY);
+        this.setStroke(Paint.valueOf("FFFFFF"));
     }
 }

@@ -15,6 +15,7 @@ import sample.viewmodel.ObstacleGenerator;
 public class Main extends Application {
 
     static Pane root;
+    public static final int RAY_COUNT = 20;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -29,10 +30,12 @@ public class Main extends Application {
 
         MouseCircle mouse = new MouseCircle();
         root.getChildren().add(mouse);
+        mouse.generateRays();
 
         root.setOnMouseMoved(mouseEvent -> {
             mouse.setTranslateX(mouseEvent.getX());
             mouse.setTranslateY(mouseEvent.getY());
+            mouse.updateRays();
         });
     }
 
