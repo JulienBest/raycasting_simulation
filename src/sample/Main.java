@@ -1,13 +1,9 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import sample.model.MouseCircle;
 import sample.viewmodel.ObstacleGenerator;
@@ -15,7 +11,7 @@ import sample.viewmodel.ObstacleGenerator;
 public class Main extends Application {
 
     static Pane root;
-    public static final int RAY_COUNT = 20;
+    static ObstacleGenerator generator;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -25,7 +21,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        ObstacleGenerator generator = new ObstacleGenerator();
+        generator = new ObstacleGenerator();
         generator.generateObstacles();
 
         MouseCircle mouse = new MouseCircle();
@@ -41,6 +37,10 @@ public class Main extends Application {
 
     public static Pane getRoot() {
         return root;
+    }
+
+    public static ObstacleGenerator getGenerator() {
+        return generator;
     }
 
     public static void main(String[] args) {
